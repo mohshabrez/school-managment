@@ -18,7 +18,17 @@ export const StudentList = ({ students}) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {students?.data?.map((student) => (
+                        {students ? students?.map((student) => (
+                            <tr key={student?._id} onClick={() => navigate(`/students/${student?._id}`)} className="bg-gray-200 text-center px-2">
+                                <td className="hover: cursor-pointer font-bold">{student?.name}</td>
+                                <td className="hover: cursor-pointer font-bold">{student?.age}</td>
+                                <td className="hover: cursor-pointer font-bold">{student?.grade}</td>
+                                <td className="hover: cursor-pointer font-bold">{student?.gender}</td>
+                                <td className="hover: cursor-pointer font-bold">{student?.attendance}</td>
+                                <td className="hover: cursor-pointer font-bold">{student?.marks}</td>
+                                <td className="hover: cursor-pointer font-bold">{student?.class}</td>
+                            </tr>
+                        )): students?.data?.map((student) => (
                             <tr key={student?._id} onClick={() => navigate(`/students/${student?._id}`)} className="bg-gray-200 text-center px-2">
                                 <td className="hover: cursor-pointer font-bold">{student?.name}</td>
                                 <td className="hover: cursor-pointer font-bold">{student?.age}</td>
